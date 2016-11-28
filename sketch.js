@@ -1,5 +1,6 @@
 var nations;
 var myFont;
+var MapKey;
 
 var inputRange = 0;
 var inputMouse = 0;
@@ -13,9 +14,12 @@ function preload(){
    
    nations = loadJSON("nationData.json");
    myFont = loadFont("VertigoPlusFLF-Bold.ttf");
+   MapKey = loadImage ("assets/Map_Key_JSON.png");
 }
 
 function setup() {
+ 
+ //image(MapKey,200,200);
  
  colors = [color(255,0,0),color(0,255,0),color(0,0,255),color(255,255,0),color(255,180,0)];
  createCanvas(1500,1000);
@@ -26,8 +30,8 @@ function setup() {
 
 
 function draw() {
-   
-   background(100);
+ 
+   background(128,80,135);
    noStroke();
    
    textSize(35);
@@ -39,7 +43,8 @@ function draw() {
    text("Life Expectancy",100,0);
    //text("else",200,800);
    pop();
-  
+ 
+   image(MapKey,1200,350); 
    
    text("Income vs Life Expectancy",800,100);
    text("Income",600,850);
@@ -65,7 +70,7 @@ function draw() {
       
    for(var i = 0;i < 162;i++){
       var tempY = dataReturn(i,"lifeExpectancy",height -0,0,inputMouse,inputRange);
-      var tempX = dataReturn(i,"income",225,width +200,inputMouse,inputRange);
+      var tempX = dataReturn(i,"income",100,width +200,inputMouse,inputRange);
       //fill(i*2,200 - (i*3),i*4,225);
       dataEllipse(tempX,tempY,i,"population",15,25,inputMouse,inputRange);
       //this accesess the information from the created function, and looks as follows
